@@ -6,10 +6,10 @@ export default function Home() {
     const navigate = useNavigate();
 
     const handleStart = (e) => {
-        e?.preventDefault?.();
+        if (e && e.preventDefault) e.preventDefault();
         const name = nickname.trim();
         if (!name) {
-            alert("낙네임을 입력해주세요.");
+            alert("닉네임을 입력해주세요.");
             return;
         }
         navigate(`/quiz/${encodeURIComponent(name)}`);
@@ -21,16 +21,16 @@ export default function Home() {
 
             <form onSubmit={handleStart}>
                 <input
-                id="nickname"
-                type="text"
-                value={nickname}
-                onChange={(e) => setNickname(e.target.value)}
-                placeholder="닉네임을 입력하세요"
-                maxLength={20}
-                style={{ display: "block", margin: "8px 0", padding: "8px" }}
+                    id="nickname"
+                    type="text"
+                    value={nickname}
+                    onChange={(e) => setNickname(e.target.value)}
+                    placeholder="닉네임을 입력하세요"
+                    maxLength={20}
+                    style={{ display: "block", margin: "8px 0", padding: "8px" }}
                 />
                 <button type="submit" style={{ padding: "8px 16px" }}>
-                시작하기
+                    시작하기
                 </button>
             </form>
         </div>
