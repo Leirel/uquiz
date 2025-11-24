@@ -19,7 +19,7 @@ export default function Home() {
         <div className="container" style={{ padding: 20 }}>
             <h1>UQuiz?</h1>
 
-            <form onSubmit={handleStart}>
+            <form onSubmit={handleStart} style={{ marginTop: 20 }}>
                 <input
                     id="nickname"
                     type="text"
@@ -27,7 +27,15 @@ export default function Home() {
                     onChange={(e) => setNickname(e.target.value)}
                     placeholder="닉네임을 입력하세요"
                     maxLength={20}
-                    style={{ display: "block", margin: "8px 0", padding: "8px" }}
+                    style={{
+                        width: "100%",
+                        padding: "14px 18px",
+                        fontSize: 18,
+                        borderRadius: 12,
+                        border: "1px solid #ccc",
+                        boxSizing: "border-box",
+                        marginBottom: 16
+                    }}
                 />
                 <button type="submit" style={{ padding: "8px 16px" }}>
                     시작하기
