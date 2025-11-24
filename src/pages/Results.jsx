@@ -25,11 +25,12 @@ export default function Results() {
 
     return (
         <div className="container" style={{ padding: 20 }}>
+            <h1>UQuiz?</h1>
             <h2>🎉 퀴즈 결과</h2>
 
             {typeof userScore === "number" ? (
                 <p style={{ marginTop: 12 }}>
-                    <strong>{nickname}</strong>님의 점수는 <strong>{userScore}</strong>점입니다.
+                    <strong>{nickname}</strong>님의 점수 : <strong>{userScore} / 10</strong>
                 </p>
             ) : (
                 <p style={{ marginTop: 12 }}>결과 정보를 불러올 수 없습니다.</p>

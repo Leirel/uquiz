@@ -17,7 +17,7 @@ export default function Home() {
 
     return (
         <div className="container" style={{ padding: 20 }}>
-            <h1>UQuiz</h1>
+            <h1>UQuiz?</h1>
 
             <form onSubmit={handleStart}>
                 <input
