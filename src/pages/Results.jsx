@@ -36,13 +36,39 @@ export default function Results() {
             )}
 
             <h3 style={{ marginTop: 20 }}>🏆 Top 랭킹</h3>
-            <ol style={{ textAlign: "left", marginTop: 8 }}>
-                {sortedRankings.map((r, i) => (
-                    <li key={`${r.nickname}-${i}`}>
-                        {r.nickname} — {r.score}점
-                    </li>
-                ))}
-            </ol>
+
+<table
+    style={{
+        width: "100%",
+        marginTop: "12px",
+        borderCollapse: "collapse",
+        textAlign: "center",
+        background: "#fafafa",
+        borderRadius: "8px",
+        overflow: "hidden",
+    }}
+>
+    <thead style={{ background: "#eee" }}>
+        <tr>
+            <th style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>순위</th>
+            <th style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>ID</th>
+            <th style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>점수</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {sortedRankings.map((r, i) => (
+            <tr key={`${r.nickname}-${i}`}>
+                <td style={{ padding: "10px", borderBottom: "1px solid #eee" }}>{i + 1}</td>
+                <td style={{ padding: "10px", borderBottom: "1px solid #eee" }}>{r.nickname}</td>
+                <td style={{ padding: "10px", borderBottom: "1px solid #eee" }}>
+                    {r.score} / 10
+                </td>
+            </tr>
+        ))}
+    </tbody>
+</table>
+
 
             <div style={{ marginTop: 20 }}>
                 <button onClick={() => navigate("/")}>다시하기</button>
