@@ -1,27 +1,15 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import { useHome } from "../hooks/useHome";
 
 export default function Home() {
-    const [nickname, setNickname] = useState("");
-    const navigate = useNavigate();
-
-    const handleStart = (e) => {
-        if (e && e.preventDefault) e.preventDefault();
-        const name = nickname.trim();
-        if (!name) {
-            alert("닉네임을 입력해주세요.");
-            return;
-        }
-        navigate(`/quiz/${encodeURIComponent(name)}`);
-    };
+    const { nickname, setNickname, handleStart } = useHome();
 
     return (
         <div className="container" style={{ padding: 20 }}>
             <h1>UQuiz?</h1>
 
-            <form onSubmit={handleStart} style={{ marginTop: 20 }}>
+            <form onSubmit={handleStart}>
                 <input
-                    id="nickname"
                     type="text"
                     value={nickname}
                     onChange={(e) => setNickname(e.target.value)}
@@ -29,15 +17,26 @@ export default function Home() {
                     maxLength={20}
                     style={{
                         width: "100%",
-                        padding: "14px 18px",
-                        fontSize: 18,
-                        borderRadius: 12,
+                        padding: "12px 16px",
+                        borderRadius: "8px",
                         border: "1px solid #ccc",
-                        boxSizing: "border-box",
-                        marginBottom: 16
+                        boxSizing: "border-box"
                     }}
                 />
-                <button type="submit" style={{ padding: "8px 16px" }}>
+
+                <button
+                    type="submit"
+                    style={{
+                        marginTop: 12,
+                        width: "100%",
+                        padding: "12px 16px",
+                        background: "#4a73ff",
+                        color: "white",
+                        border: "none",
+                        borderRadius: 8,
+                        fontSize: 16
+                    }}
+                >
                     시작하기
                 </button>
             </form>
