@@ -1,16 +1,13 @@
 import React from "react";
-import { useParams } from "react-router-dom";
 import { useQuiz } from "../hooks/useQuiz";
 
 export default function Quiz() {
-    const { nickname } = useParams();
-
     const {
         currentIndex,
         selectedOption,
         setSelectedOption,
         currentQuestion,
-        handleNext: originalHandleNext,
+        handleNext,
         questions,
     } = useQuiz();
 
@@ -52,7 +49,7 @@ export default function Quiz() {
             </div>
 
             <button
-                onClick={originalHandleNext}
+                onClick={handleNext}
                 style={{
                     marginTop: 20,
                     width: "100%",

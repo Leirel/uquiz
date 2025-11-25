@@ -4,7 +4,10 @@ import { useResults } from "../hooks/useResults";
 
 export default function Results() {
     const navigate = useNavigate();
-    const { nickname, userScore, sortedRankings } = useResults(); // <-- 중요!
+    let { nickname, userScore, sortedRankings } = useResults();
+
+    // 비정상 접근 시 기본값
+    if (!userScore) userScore = 0;
 
     return (
         <div className="container" style={{ padding: 20 }}>
