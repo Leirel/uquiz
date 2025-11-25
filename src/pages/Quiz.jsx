@@ -1,13 +1,16 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 import { useQuiz } from "../hooks/useQuiz";
 
 export default function Quiz() {
+    const { nickname } = useParams();
+
     const {
         currentIndex,
         selectedOption,
         setSelectedOption,
         currentQuestion,
-        handleNext,
+        handleNext: originalHandleNext,
         questions,
     } = useQuiz();
 
@@ -23,7 +26,6 @@ export default function Quiz() {
                 {currentQuestion.question}
             </p>
 
-            {/* 옵션 카드 스타일 */}
             <div style={{ marginTop: 12 }}>
                 {currentQuestion.options.map((opt, idx) => (
                     <div
@@ -33,9 +35,15 @@ export default function Quiz() {
                             padding: "12px 16px",
                             marginBottom: 10,
                             borderRadius: 10,
-                            border: selectedOption === idx ? "2px solid #4a73ff" : "1px solid #ddd",
-                            background: selectedOption === idx ? "#e8f0ff" : "#f7f7f7",
-                            cursor: "pointer"
+                            border:
+                                selectedOption === idx
+                                    ? "2px solid #4a73ff"
+                                    : "1px solid #ddd",
+                            background:
+                                selectedOption === idx
+                                    ? "#e8f0ff"
+                                    : "#f7f7f7",
+                            cursor: "pointer",
                         }}
                     >
                         {opt}
@@ -44,7 +52,7 @@ export default function Quiz() {
             </div>
 
             <button
-                onClick={handleNext}
+                onClick={originalHandleNext}
                 style={{
                     marginTop: 20,
                     width: "100%",

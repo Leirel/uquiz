@@ -4,7 +4,7 @@ import { useResults } from "../hooks/useResults";
 
 export default function Results() {
     const navigate = useNavigate();
-    const { nickname, userScore, sortedRankings } = useResults();
+    const { nickname, userScore, sortedRankings } = useResults(); // <-- 중요!
 
     return (
         <div className="container" style={{ padding: 20 }}>
@@ -17,7 +17,6 @@ export default function Results() {
 
             <h3 style={{ marginTop: 20 }}>🏆 Top 랭킹</h3>
 
-            {/* 표 스타일 */}
             <table
                 style={{
                     width: "100%",
