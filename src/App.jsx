@@ -4,7 +4,7 @@ import Quiz from "./pages/Quiz";
 import Results from "./pages/Results";
 import NotFound from "./pages/NotFound";
 
-function App() {
+export default function App() {
     return (
             <Routes>
                 <Route path="/" element={<Home />} />
@@ -14,5 +14,3 @@ function App() {
             </Routes>
     );
 }
-
-export default App;
