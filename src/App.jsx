@@ -11,6 +11,6 @@ export default function App() {
                 <Route path="/quiz/:nickname" element={<Quiz />} />
                 <Route path="/results/:nickname" element={<Results />} />
                 <Route path="*" element={<NotFound />} />
-            </Routes>
+            </Routes> 
     );
 }
